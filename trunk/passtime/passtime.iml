@@ -17,6 +17,7 @@
           </files-to-enhance>
           <run-enhancer-on-make>true</run-enhancer-on-make>
           <sdk-home-path>$USER_HOME$/Applications/SDK/appengine-java-sdk-1.5.0</sdk-home-path>
+          <email>lixfeng.3@gmail.com</email>
         </configuration>
       </facet>
     </facet>
