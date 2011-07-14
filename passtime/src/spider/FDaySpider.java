@@ -25,7 +25,6 @@ public class FDaySpider extends AbsSpider {
 
     @Override
     protected List<QiuShi> parserHtml(String html) {
-        System.out.println("start......");
         List<QiuShi> qiuShis = new ArrayList<QiuShi>();
         Parser parser = Parser.createParser(html, "utf-8");
         NodeFilter divFilter = new NodeClassFilter(Div.class);
@@ -35,6 +34,7 @@ public class FDaySpider extends AbsSpider {
             NodeList nodeList = parser.extractAllNodesThatMatch(lastFilter);
             for (Node node : nodeList.toNodeArray()) {
                 QiuShi qiuShi = new QiuShi();
+                qiuShi.setImageUrl("");
                 String divInfo = node.getText();
                 if (divInfo.equals("div class=\"c\"")) {
                     //a href="/view/91037"
