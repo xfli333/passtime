@@ -19,11 +19,11 @@ import java.util.Map;
  * Time: 上午10:32
  * To change this template use File | Settings | File Templates.
  */
-public class HtmlBuilder {
+public class HtmlCreater {
 
 
     public static void createHtml(String ftlName,List<QiuShi> objects,String htmlName) {
-        String currentPath = HtmlBuilder.class.getResource("").getPath();
+        String currentPath = HtmlCreater.class.getResource("").getPath();
         String templatePath = currentPath.substring(0, currentPath.length() - 9);
         templatePath += "/template/";
 

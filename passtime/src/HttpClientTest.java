@@ -1,10 +1,9 @@
-import builder.HtmlBuilder;
+import builder.HtmlCreater;
 import content.QiuShi;
 import spider.AbsSpider;
 import spider.FDaySpider;
 import spider.QiushiSpider;
 
-import javax.jdo.PersistenceManagerFactory;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.*;
@@ -71,7 +70,7 @@ public class HttpClientTest {
                 e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
             }
 
-            HtmlBuilder.createHtml("content.ftl", qiuShiList, "content"+index);
+            HtmlCreater.createHtml("content.ftl", qiuShiList, "content" + index);
             service.shutdown();
             System.out.println("thread "+index+" down");
         }
