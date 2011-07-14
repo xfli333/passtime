@@ -35,6 +35,7 @@ public class QiushiSpider extends AbsSpider {
             NodeList nodeList = parser.extractAllNodesThatMatch(lastFilter);
             for (Node node : nodeList.toNodeArray()) {
                 QiuShi qiuShi = new QiuShi();
+                qiuShi.setImageUrl("");
                 String divInfo = node.getText();
                 if (divInfo.startsWith("div class=\"qiushi_body article \"")) {
                     int titleLocation = divInfo.indexOf("title=");
