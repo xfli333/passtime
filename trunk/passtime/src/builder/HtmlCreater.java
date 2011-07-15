@@ -22,7 +22,7 @@ import java.util.Map;
 public class HtmlCreater {
 
 
-    public static void createHtml(String ftlName,List<QiuShi> objects,String htmlName) {
+    public static void createHtml(String ftlName,List<QiuShi> objects,String htmlFile) {
         String currentPath = HtmlCreater.class.getResource("").getPath();
         String templatePath = currentPath.substring(0, currentPath.length() - 9);
         templatePath += "/template/";
@@ -35,7 +35,7 @@ public class HtmlCreater {
             Map root = new HashMap();
             root.put("objects", objects);
             Template temp = cfg.getTemplate(ftlName);
-            Writer out = new OutputStreamWriter(FileUtils.openOutputStream(new File(templatePath+htmlName+".html")));
+            Writer out = new OutputStreamWriter(FileUtils.openOutputStream(new File(templatePath+htmlFile+".html")));
             temp.process(root,out);
             out.close();
         } catch (IOException e) {

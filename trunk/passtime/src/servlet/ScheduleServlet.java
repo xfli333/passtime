@@ -1,35 +1,44 @@
+package servlet;
+
 import builder.HtmlCreater;
 import content.QiuShi;
 import spider.AbsSpider;
 import spider.FDaySpider;
 import spider.QiushiSpider;
 
-import java.sql.Time;
+import javax.servlet.*;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.*;
 
 /**
- * Created by IntelliJ IDEA.
- * User: user
- * Date: 11-7-13
- * Time: 下午2:45
- * To change this template use File | Settings | File Templates.
+ * User: Lee
+ * Date: 11-7-14
+ * Time: 下午1:40
  */
-public class HttpClientTest {
-    static ExecutorService service = Executors.newFixedThreadPool(2);
+public class ScheduleServlet extends HttpServlet {
+     ExecutorService service = Executors.newFixedThreadPool(2);
 
-    static ExecutorService mainService = Executors.newFixedThreadPool(20);
+     ExecutorService mainService = Executors.newFixedThreadPool(20);
 
-    static ScheduledExecutorService scheduleService = Executors.newSingleThreadScheduledExecutor();
+     ScheduledExecutorService scheduleService = Executors.newSingleThreadScheduledExecutor();
 
     int i = 0;
 
-    public static void main(String[] args) {
-        new HttpClientTest().executeThread();
+    String createHtmlPath="";
 
 
+    @Override
+    protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        System.out.println("path :" + req.getSession().getServletContext().getRealPath(""));
+        createHtmlPath=req.getSession().getServletContext().getRealPath("");
+        executeThread();
     }
+
 
     private void executeThread() {
         scheduleService.scheduleAtFixedRate(new Runnable() {
@@ -62,7 +71,7 @@ public class HttpClientTest {
             Future<List<QiuShi>> future1 = service.submit(new Callable() {
                 @Override
                 public Object call() throws Exception {
-                    List<QiuShi> qiuShiList = (List<QiuShi>) qiuShiSpider.spiderContent("http://www.qiushibaike.com/late.php?s=" + (index * 20));
+                    List<QiuShi> qiuShiList = (List<QiuShi>) qiuShiSpider.spiderContent("http://www.qiushibaike.com/hot.php?s=" + (index * 20));
                     return qiuShiList;
                 }
             });
@@ -83,7 +92,7 @@ public class HttpClientTest {
                 e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
             }
 
-            HtmlCreater.createHtml("content.ftl", qiuShiList, "content" + index);
+            HtmlCreater.createHtml("content.ftl", qiuShiList, createHtmlPath+"/content/"+"content" + index);
             service.shutdown();
             System.out.println("thread " + index + " down");
         }
