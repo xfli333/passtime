@@ -5,27 +5,30 @@
     <link href="/Users/user/IdeaProjects/passtime/web/resources/css/common.css" rel="stylesheet"/>
 </head>
 <body>
-<#list objects as obj>
-<div class="w_div">
-${obj.content}
-    <#if obj.imageUrl != "">
-        <div class="m_div">
-        ${obj.imageUrl}
+    <#list objects as obj>
+        <div class="w_div">
+            <div class="m_div"></div>
+            <br>
+            <br>
+            ${obj.content}
+            <#if obj.imageUrl != "">
+                <div class="m_div">
+                    ${obj.imageUrl}
+                </div>
+            </#if>
+
         </div>
-    </#if>
-</div>
-</#list>
+    </#list>
 
-<br/>
+    <br/>
+    <div class="w_div">
+    <#list 0..19 as i>
+        <a href="content${i}.html">${i}</a>
+    </#list>
+    </div>
 
-<div class="w_div">
-<#list 0..19 as i>
-    <a href="content${i}.html">${i}</a>
-</#list>
-</div>
-
-<br/>
-<br/>
-<br/>
+    <br/>
+    <br/>
+    <br/>
 </body>
 </html>
