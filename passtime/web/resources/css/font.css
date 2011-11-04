@@ -1,0 +1,10 @@
+@font-face {
+    font-family: 'ft1';
+    src: url('../font/JOURNAL.eot');
+    src: url('../font/JOURNAL.TTF') format('truetype');
+}
+
+@font-face {
+    font-family: 'xs';
+    src: url('../font/7000.TTF') format('truetype');
+}
