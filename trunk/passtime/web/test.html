@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="resources/css/font.css"/>
+    <script type="text/javascript" src="resources/js/jquery-1.6.3.min.js"></script>
+    <script type="text/JavaScript" src="resources/js/cloud-carousel.1.0.5.min.js"></script>
+    <script type="text/JavaScript" src="resources/js/jquery.mousewheel.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if (!$.browser.msie) {
+                $('.xshp').css("font-family", "xs");
+                $('.xshp').css("font-size", "33px");
+                $('.xshp').css("color", "blue");
+            }
+            $("#carousel1").CloudCarousel(
+                    {
+                        reflHeight: 56,
+                        reflGap:2,
+                        titleBox: $('#da-vinci-title'),
+                        altBox: $('#da-vinci-alt'),
+                        buttonLeft: $('#left-but'),
+                        buttonRight: $('#right-but'),
+                        yRadius:40,
+                        xPos: 255,
+                        yPos: 50,
+                        speed:0.15,
+                        mouseWheel:true
+                    }
+            );
+        });
+    </script>
+</head>
+<body style="background:url(resources/pic/bj.jpg) no-repeat center top">
+<p style="font-family: ft1">this is a test!</p>
+
+<p class="xshp">江南好，风景旧曾谙。日出江花红胜火，春来江水绿如蓝，能不忆江南。</p>
+
+<div id="carousel1"
+     style="left:100px;width:500px; height:328px;background-image: url(/resources/pic/temp/bg.jpg);overflow:scroll;">
+    <img class="cloudcarousel" src="/resources/pic/temp/test1.png" alt="Flag 1 Description" title="Flag 1 Title"/>
+    <img class="cloudcarousel" height="164px" width="128px" src="/resources/pic/temp/t2.png" alt="Flag 2 Description" title="Flag 2 Title"/>
+    <img class="cloudcarousel" src="/resources/pic/temp/test3.png" alt="Flag 3 Description" title="Flag 3 Title"/>
+    <img class="cloudcarousel" src="/resources/pic/temp/test4.png" alt="Flag 4 Description" title="Flag 4 Title"/>
+    <img class="cloudcarousel" src="/resources/pic/temp/test5.png" alt="Flag 5 Description" title="Flag 5 Title"/>
+    <img class="cloudcarousel" src="/resources/pic/temp/test6.png" alt="Flag 6 Description" title="Flag 6 Title"/>
+    <img class="cloudcarousel" src="/resources/pic/temp/test7.png" alt="Flag 7 Description" title="Flag 7 Title"/>
+    <img class="cloudcarousel" src="/resources/pic/temp/test8.png" alt="Flag 8 Description" title="Flag 8 Title"/>
+    <img class="cloudcarousel" src="/resources/pic/temp/test9.png" alt="Flag 9 Description" title="Flag 9 Title"/>
+       <img class="cloudcarousel" src="/resources/pic/temp/test10.png" alt="Flag 9 Description" title="Flag 9 Title"/>
+
+</div>
+
+<!-- Define left and right buttons. -->
+<input id="left-but" type="button" value="Left"/>
+<input id="right-but" type="button" value="Right"/>
+
+<!-- Define elements to accept the alt and title text from the images. -->
+<p id="title-text"></p>
+
+<p id="alt-text"></p>
+</body>
+</html>
