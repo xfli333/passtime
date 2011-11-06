@@ -13,5 +13,8 @@ function initChromeFont() {
         $('.port_content').css("font-size", "13px");
         $('.port_content>a').css("font-family", "xs");
         $('.port_content>a').css("font-size", "22px");
+
+        $('#twitter>a').css("font-family", "xs");
     }
+     $('#twitter>a').css("color", "#39B2FF");
 }
